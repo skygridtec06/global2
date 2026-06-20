@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 35% 97%;
+    --foreground: 221 39% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 221 39% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 221 39% 11%;
+
+    --primary: 0 84% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 92% 52%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 25% 94%;
+    --muted-foreground: 217 12% 38%;
+
+    --accent: 145 72% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 24% 88%;
+    --input: 214 24% 88%;
+    --ring: 0 84% 56%;
+
+    --radius: 0.75rem;
+
+    /* Custom GlobalBet tokens */
+    --pitch-green: 145 72% 42%;
+    --amber-glow: 210 92% 52%;
+    --live-red: 0 84% 54%;
+    --bet-gradient: linear-gradient(135deg, hsl(0 84% 56%), hsl(210 92% 52%));
+    --hero-gradient: linear-gradient(130deg, hsl(0 86% 52%), hsl(212 89% 48%) 56%, hsl(145 70% 40%));
+    --card-glow: 0 10px 30px -14px hsl(0 84% 56% / 0.38);
+    --accent-glow: 0 10px 26px -14px hsl(210 92% 52% / 0.5);
+
+    --sidebar-background: 221 39% 11%;
+    --sidebar-foreground: 210 22% 91%;
+    --sidebar-primary: 0 84% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 218 31% 18%;
+    --sidebar-accent-foreground: 210 22% 91%;
+    --sidebar-border: 218 31% 20%;
+    --sidebar-ring: 210 92% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    background-image:
+      radial-gradient(circle at 14% 8%, hsl(0 84% 56% / 0.14), transparent 34%),
+      radial-gradient(circle at 86% 14%, hsl(210 92% 52% / 0.14), transparent 38%),
+      radial-gradient(circle at 50% 100%, hsl(145 72% 42% / 0.12), transparent 42%);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold;
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background: var(--hero-gradient);
+  }
+
+  .gradient-bet {
+    background: var(--bet-gradient);
+  }
+
+  .shadow-card {
+    box-shadow: var(--card-glow);
+  }
+
+  .shadow-accent {
+    box-shadow: var(--accent-glow);
+  }
+
+  .glass {
+    @apply bg-card/80 backdrop-blur-md border border-border/50;
+  }
+
+  .live-pulse {
+    animation: pulse-live 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-live {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .match-card-hover {
+    @apply transition-all duration-200 hover:shadow-card hover:-translate-y-0.5;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+}

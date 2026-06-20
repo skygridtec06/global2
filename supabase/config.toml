@@ -1,0 +1,7 @@
+project_id = "apednwqmgglmgryiszr"
+
+[functions.football-api]
+verify_jwt = false
+
+[functions.mpesa-deposit]
+verify_jwt = false
